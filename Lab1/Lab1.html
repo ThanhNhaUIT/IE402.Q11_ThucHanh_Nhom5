@@ -16,25 +16,17 @@
   <script src="https://js.arcgis.com/4.26/"></script>
   
   <script>
-	var point_template_tree = {
+	var point_template_hospital = {
 					title: "{Name}",
-					content: "Cây này ở <b>{Location}</b>."
-				};
-	var point_template_light = {
-					title: "{Name}",
-					content: "Bóng đèn này ở <b>{Location}</b>."
-				};
-	var point_template_chair = {
-					title: "{Name}",
-					content: "Cái ghế này ở <b>{Location}</b>."
+					content: "Bệnh viện này ở <b>{Location}</b>."
 				};
 	var point_template_area = {
 					title: "{Name}",
 					content: "Khu vực này ở <b>{Location}</b>."
 				};
-	var point_template_university = {
+	var point_template_neighborhood = {
 					title: "{Name}",
-					content: "Trường ở <b>{Location}</b>."
+					content: "Khu dân cư ở <b>{Location}</b>."
 				};
 	var jsondata = {
 		// Các point trên bảng đồ biểu thị bệnh viện ở Los Angeles
@@ -44,7 +36,7 @@
 				longitude: -118.29388184457588, 
 				latitude: 34.09839188399175,
 				Name: "Kaiser Permanente Los Angeles Medical Center",
-				Location: "trong ...",
+				Location: "trong khu dân cư East Hollywood",
 				symbol: {
 					type: "simple-marker",
 					color: [0, 153, 51],
@@ -53,7 +45,7 @@
 						width: 1
 					}
 				},
-				popupTemplate: point_template_tree
+				popupTemplate: point_template_hospital
 			},
 			{
 				type: "point",
@@ -69,7 +61,7 @@
 						width: 1
 					}
 				},
-				popupTemplate: point_template_light
+				popupTemplate: point_template_hospital
 			},
 			{
 				type: "point",
@@ -85,7 +77,7 @@
 						width: 1
 					}
 				},
-				popupTemplate: point_template_chair
+				popupTemplate: point_template_hospital
 			},
 			{
 				type: "point",
@@ -95,13 +87,13 @@
 				Location: "18321 CLARK STREET",
 				symbol: {
 					type: "simple-marker",
-					color: [153, 51, 51],
+					color: [0, 0, 255],
 					outline: {
 						color: [255, 255, 255],
 						width: 1
 					}
 				},
-				popupTemplate: point_template_chair
+				popupTemplate: point_template_hospital
 			},
 			
 		],
@@ -174,20 +166,25 @@
 			popupTemplate: point_template_area
 		}
 	],
-	// Vẽ các đơn vị hành chính nhỏ hơn trong los angeles
+	// Vẽ các đơn vị hành chính nhỏ hơn trong Los Angeles
 		"polygons":[
 			{
 				type: "polygon",
 				rings: [
-					[106.80514114445627, 10.870158436990936],
-					[106.80400388783394, 10.868915147546755],
-					[106.8032099539655, 10.868325110065758],
-					[106.80245893544132, 10.869210165849735],
-					[106.80245893544132, 10.869484111155634],
-					[106.8037463957685, 10.871085632526057]
+					[-118.30927527567266, 34.101747053569376],
+					[-118.29297736736784, 34.10176414817049],
+					[-118.29220501279116, 34.10150903732089],
+					[-118.28740476043208, 34.09836191743578],
+					[-118.28711374075422, 34.098168683788465],
+					[-118.28414617332518, 34.09581611599354],
+					[-118.28459748192913, 34.09581836115297],
+					[-118.28441042124129, 34.076720483162816],
+					[-118.28629044944205, 34.07669626730222],
+					[-118.2868221291262, 34.07633598048512],
+					[-118.30916040481216, 34.07625104289602]
 				],
-				Name: "Đại học CNTT",
-				Location: "Khu phố 6, P.Linh Trung, Q.Thủ Đức, Tp.Hồ Chí Minh",
+				Name: "Khu dân cư East Hollywood",
+				Location: "Thành phố Los Angeles, bang California, Hoa Kỳ",
 				symbol: {
 					type: "simple-fill",
 					color: [227, 139, 79, 0.4],
@@ -196,7 +193,7 @@
 						width: 1
 					}
 				},
-				popupTemplate: point_template_university
+				popupTemplate: point_template_neighborhood
 			},
 			{
 				type: "polygon",
@@ -223,7 +220,7 @@
 						width: 1
 					}
 				},
-				popupTemplate: point_template_university
+				popupTemplate: point_template_neighborhood
 			},
 			{
 				type: "polygon",
@@ -250,7 +247,7 @@
 						width: 1
 					}
 				},
-				popupTemplate: point_template_university
+				popupTemplate: point_template_neighborhood
 			},
 			{
 				type: "polygon",
@@ -279,7 +276,7 @@
 						width: 1
 					}
 				},
-				popupTemplate: point_template_university
+				popupTemplate: point_template_neighborhood
 			}
 			
 		]
@@ -301,7 +298,7 @@
 		var view = new MapView({
 		container: "viewDiv",
 		map: map,
-		center: [-118, 34],
+		center: [-118.37261843470925, 34.12822961697963],
 		zoom: 15,
           highlightOptions: {
             color: "blue"
