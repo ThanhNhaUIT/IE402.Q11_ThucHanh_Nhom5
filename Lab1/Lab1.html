@@ -34,221 +34,225 @@
     };
     var point_template_area = {
       title: "{Name}",
-      content: "Khu vực này ở <b>{Location}</b>."
+      content: "<b>Khu vực này ở</b> {Location}<br> <b>Tiếp giáp với:</b> {BorderCounty}<br> <b>Đặc điểm nổi bật: </b>{SpecialFeature}"
     };
     var point_template_neighborhood = {
       title: "{Name}",
-      content: "Khu dân cư ở <b>{Location}</b>."
+      content: "<b>Khu dân cư ở</b> {Location}<br>" +
+        "<b>Diện tích:</b> {Area} km²<br>" +
+        "<b>Số dân:</b> {Population} người<br>" +
+        "<b>Mô tả:</b> {Description}"
     };
+
 
     var jsondata = {
       // Các point trên bản đồ biểu thị bệnh viện ở Los Angeles
       "points": [{
-          type: "point",
-          longitude: -118.29388184457588,
-          longitude: -118.29388184457588,
-          latitude: 34.09839188399175,
-          Name: "KAISER PERMANENTE LOS ANGELES MEDICAL CENTER",
-          Location: "4867 SUNSET BLVD, trong khu dân cư East Hollywood",
-          Type: "Bệnh viện tư nhân",
-          Established: "1953",
-          Specialties: "Tim mạch, Nội tổng quát, Nhi khoa, Ung bướu",
-          Affiliation: "Kaiser Permanente Health System",
-          Phone: "(323) 783-4011",
-          Description: "Một trong những trung tâm y tế lớn nhất của Kaiser ở khu vực Los Angeles, phục vụ cộng đồng từ năm 1953 với hơn 1.200 giường bệnh.",
-          symbol: {
-            type: "picture-marker",
-            url: "hospital-buildings.png",
-            width: "30px",
-            height: "30px"
-          },
-          popupTemplate: point_template_hospital
+        type: "point",
+        longitude: -118.29388184457588,
+        longitude: -118.29388184457588,
+        latitude: 34.09839188399175,
+        Name: "KAISER PERMANENTE LOS ANGELES MEDICAL CENTER",
+        Location: "4867 SUNSET BLVD, trong khu dân cư East Hollywood",
+        Type: "Bệnh viện tư nhân",
+        Established: "1953",
+        Specialties: "Tim mạch, Nội tổng quát, Nhi khoa, Ung bướu",
+        Affiliation: "Kaiser Permanente Health System",
+        Phone: "(323) 783-4011",
+        Description: "Một trong những trung tâm y tế lớn nhất của Kaiser ở khu vực Los Angeles, phục vụ cộng đồng từ năm 1953 với hơn 1.200 giường bệnh.",
+        symbol: {
+          type: "picture-marker",
+          url: "hospital-buildings.png",
+          width: "30px",
+          height: "30px"
         },
-        {
-          type: "point",
-          longitude: -118.286392079,
-          longitude: -118.286392079,
-          latitude: 34.067204777,
-          Name: "SHRINERS HOSPITAL FOR CHILDREN - L.A.",
-          Location: "3160 GENEVA STREET",
-          Type: "Bệnh viện phi lợi nhuận",
-          Established: "1952",
-          Specialties: "Nhi khoa, Chỉnh hình, Phẫu thuật bỏng, Phục hồi chức năng",
-          Affiliation: "Shriners Hospitals for Children",
-          Phone: "(213) 388-3151",
-          Description: "Cung cấp dịch vụ chăm sóc y tế miễn phí cho trẻ em, đặc biệt trong lĩnh vực chỉnh hình và phẫu thuật bỏng.",
-          symbol: {
-            type: "picture-marker",
-            url: "hospital-buildings.png",
-            width: "30px",
-            height: "30px"
-          },
-          popupTemplate: point_template_hospital
+        popupTemplate: point_template_hospital
+      },
+      {
+        type: "point",
+        longitude: -118.286392079,
+        longitude: -118.286392079,
+        latitude: 34.067204777,
+        Name: "SHRINERS HOSPITAL FOR CHILDREN - L.A.",
+        Location: "3160 GENEVA STREET",
+        Type: "Bệnh viện phi lợi nhuận",
+        Established: "1952",
+        Specialties: "Nhi khoa, Chỉnh hình, Phẫu thuật bỏng, Phục hồi chức năng",
+        Affiliation: "Shriners Hospitals for Children",
+        Phone: "(213) 388-3151",
+        Description: "Cung cấp dịch vụ chăm sóc y tế miễn phí cho trẻ em, đặc biệt trong lĩnh vực chỉnh hình và phẫu thuật bỏng.",
+        symbol: {
+          type: "picture-marker",
+          url: "hospital-buildings.png",
+          width: "30px",
+          height: "30px"
         },
-        {
-          type: "point",
-          longitude: -118.430219294,
-          longitude: -118.430219294,
-          latitude: 34.2185641940001,
-          Name: "KAISER PERMANENTE PANORAMA CITY",
-          Location: "13652 CANTARA STREET, trong khu dân cư Panorama City",
-          Type: "Bệnh viện tư nhân",
-          Established: "1962",
-          Specialties: "Sản khoa, Nội khoa, Ngoại tổng quát, Cấp cứu",
-          Affiliation: "Kaiser Permanente Health System",
-          Phone: "(818) 375-2000",
-          Description: "Trung tâm y tế phục vụ khu vực San Fernando Valley, cung cấp dịch vụ y tế toàn diện cho hàng chục nghìn cư dân.",
-          symbol: {
-            type: "picture-marker",
-            url: "hospital-buildings.png",
-            width: "30px",
-            height: "30px"
-          },
-          popupTemplate: point_template_hospital
+        popupTemplate: point_template_hospital
+      },
+      {
+        type: "point",
+        longitude: -118.430219294,
+        longitude: -118.430219294,
+        latitude: 34.2185641940001,
+        Name: "KAISER PERMANENTE PANORAMA CITY",
+        Location: "13652 CANTARA STREET, trong khu dân cư Panorama City",
+        Type: "Bệnh viện tư nhân",
+        Established: "1962",
+        Specialties: "Sản khoa, Nội khoa, Ngoại tổng quát, Cấp cứu",
+        Affiliation: "Kaiser Permanente Health System",
+        Phone: "(818) 375-2000",
+        Description: "Trung tâm y tế phục vụ khu vực San Fernando Valley, cung cấp dịch vụ y tế toàn diện cho hàng chục nghìn cư dân.",
+        symbol: {
+          type: "picture-marker",
+          url: "hospital-buildings.png",
+          width: "30px",
+          height: "30px"
         },
-        {
-          type: "point",
-          longitude: -118.531904059,
-          longitude: -118.531904059,
-          latitude: 34.170393216,
-          Name: "PROVIDENCE TARZANA MEDICAL CENTER",
-          Location: "18321 CLARK STREET, trong khu dân cư Tarzana",
-          Type: "Bệnh viện tư nhân (phi lợi nhuận)",
-          Established: "1973",
-          Specialties: "Sản khoa, Nhi khoa, Cấp cứu, Phẫu thuật tim",
-          Affiliation: "Providence Health & Services",
-          Phone: "(818) 881-0800",
-          Description: "Bệnh viện hiện đại với đội ngũ y bác sĩ giàu kinh nghiệm, cung cấp dịch vụ chăm sóc sức khỏe toàn diện cho cộng đồng Tarzana.",
-          symbol: {
-            type: "picture-marker",
-            url: "hospital-buildings.png",
-            width: "30px",
-            height: "30px"
-          },
-          popupTemplate: point_template_hospital
+        popupTemplate: point_template_hospital
+      },
+      {
+        type: "point",
+        longitude: -118.531904059,
+        longitude: -118.531904059,
+        latitude: 34.170393216,
+        Name: "PROVIDENCE TARZANA MEDICAL CENTER",
+        Location: "18321 CLARK STREET, trong khu dân cư Tarzana",
+        Type: "Bệnh viện tư nhân (phi lợi nhuận)",
+        Established: "1973",
+        Specialties: "Sản khoa, Nhi khoa, Cấp cứu, Phẫu thuật tim",
+        Affiliation: "Providence Health & Services",
+        Phone: "(818) 881-0800",
+        Description: "Bệnh viện hiện đại với đội ngũ y bác sĩ giàu kinh nghiệm, cung cấp dịch vụ chăm sóc sức khỏe toàn diện cho cộng đồng Tarzana.",
+        symbol: {
+          type: "picture-marker",
+          url: "hospital-buildings.png",
+          width: "30px",
+          height: "30px"
         },
-        {
-          type: "point",
-          longitude: -118.445764102,
-          longitude: -118.445764102,
-          latitude: 34.325871722,
-          Name: "LOS ANGELES COUNTY OLIVE VIEW-UCLA MEDICAL CENTER",
-          Location: "14445 OLIVE VIEW DRIVE, trong khu dân cư Sylmar",
-          Type: "Bệnh viện công lập",
-          Established: "1920",
-          Specialties: "Nội tổng quát, Cấp cứu, Nghiên cứu y học",
-          Affiliation: "UCLA School of Medicine",
-          Phone: "(747) 210-3000",
-          Description: "Cơ sở đào tạo và nghiên cứu y học trực thuộc UCLA, phục vụ bệnh nhân thu nhập thấp tại Los Angeles County.",
-          symbol: {
-            type: "picture-marker",
-            url: "hospital-buildings.png",
-            width: "30px",
-            height: "30px"
-          },
-          popupTemplate: point_template_hospital
+        popupTemplate: point_template_hospital
+      },
+      {
+        type: "point",
+        longitude: -118.445764102,
+        longitude: -118.445764102,
+        latitude: 34.325871722,
+        Name: "LOS ANGELES COUNTY OLIVE VIEW-UCLA MEDICAL CENTER",
+        Location: "14445 OLIVE VIEW DRIVE, trong khu dân cư Sylmar",
+        Type: "Bệnh viện công lập",
+        Established: "1920",
+        Specialties: "Nội tổng quát, Cấp cứu, Nghiên cứu y học",
+        Affiliation: "UCLA School of Medicine",
+        Phone: "(747) 210-3000",
+        Description: "Cơ sở đào tạo và nghiên cứu y học trực thuộc UCLA, phục vụ bệnh nhân thu nhập thấp tại Los Angeles County.",
+        symbol: {
+          type: "picture-marker",
+          url: "hospital-buildings.png",
+          width: "30px",
+          height: "30px"
         },
-        {
-          type: "point",
-          longitude: -118.362458577,
-          latitude: 34.0573663500001,
-          Name: "DOCS SURGICAL HOSPITAL",
-          Location: "6000 SAN VICENTE BOULEVARD",
-          Type: "Bệnh viện tư nhân",
-          Established: "2004",
-          Specialties: "Phẫu thuật thẩm mỹ, Ngoại tổng quát, Nội soi",
-          Affiliation: "DOCS Medical Group",
-          Phone: "(323) 932-5000",
-          Description: "Chuyên cung cấp dịch vụ phẫu thuật chất lượng cao trong môi trường thân thiện và hiện đại.",
-          symbol: {
-            type: "picture-marker",
-            url: "hospital-buildings.png",
-            width: "30px",
-            height: "30px"
-          },
-          popupTemplate: point_template_hospital
+        popupTemplate: point_template_hospital
+      },
+      {
+        type: "point",
+        longitude: -118.362458577,
+        latitude: 34.0573663500001,
+        Name: "DOCS SURGICAL HOSPITAL",
+        Location: "6000 SAN VICENTE BOULEVARD",
+        Type: "Bệnh viện tư nhân",
+        Established: "2004",
+        Specialties: "Phẫu thuật thẩm mỹ, Ngoại tổng quát, Nội soi",
+        Affiliation: "DOCS Medical Group",
+        Phone: "(323) 932-5000",
+        Description: "Chuyên cung cấp dịch vụ phẫu thuật chất lượng cao trong môi trường thân thiện và hiện đại.",
+        symbol: {
+          type: "picture-marker",
+          url: "hospital-buildings.png",
+          width: "30px",
+          height: "30px"
         },
-        {
-          type: "point",
-          longitude: -118.360527347,
-          latitude: 34.0572922740001,
-          Name: "OLYMPIA MEDICAL CENTER",
-          Location: "5900 WEST OLYMPIA BLVD",
-          Type: "Bệnh viện tư nhân",
-          Established: "1948",
-          Specialties: "Nội tổng quát, Cấp cứu, Phẫu thuật chỉnh hình",
-          Affiliation: "Alecto Healthcare Services",
-          Phone: "(323) 938-3161",
-          Description: "Từng là cơ sở chăm sóc sức khỏe nổi tiếng ở khu vực Mid-Wilshire, Los Angeles.",
-          symbol: {
-            type: "picture-marker",
-            url: "hospital-buildings.png",
-            width: "30px",
-            height: "30px"
-          },
-          popupTemplate: point_template_hospital
+        popupTemplate: point_template_hospital
+      },
+      {
+        type: "point",
+        longitude: -118.360527347,
+        latitude: 34.0572922740001,
+        Name: "OLYMPIA MEDICAL CENTER",
+        Location: "5900 WEST OLYMPIA BLVD",
+        Type: "Bệnh viện tư nhân",
+        Established: "1948",
+        Specialties: "Nội tổng quát, Cấp cứu, Phẫu thuật chỉnh hình",
+        Affiliation: "Alecto Healthcare Services",
+        Phone: "(323) 938-3161",
+        Description: "Từng là cơ sở chăm sóc sức khỏe nổi tiếng ở khu vực Mid-Wilshire, Los Angeles.",
+        symbol: {
+          type: "picture-marker",
+          url: "hospital-buildings.png",
+          width: "30px",
+          height: "30px"
         },
-        {
-          type: "point",
-          longitude: -118.239227761,
-          latitude: 34.0648800160001,
-          Name: "PACIFIC ALLIANCE MEDICAL CENTER",
-          Location: "WEST COLLEGE STREET",
-          Type: "Bệnh viện tư nhân",
-          Established: "1869",
-          Specialties: "Nội tổng quát, Ngoại khoa, Cấp cứu",
-          Affiliation: "Pacific Alliance Medical Group",
-          Phone: "(213) 624-8411",
-          Description: "Một trong những bệnh viện lâu đời nhất tại Los Angeles, từng được biết đến với tên gọi French Hospital.",
-          symbol: {
-            type: "picture-marker",
-            url: "hospital-buildings.png",
-            width: "30px",
-            height: "30px"
-          },
-          popupTemplate: point_template_hospital
+        popupTemplate: point_template_hospital
+      },
+      {
+        type: "point",
+        longitude: -118.239227761,
+        latitude: 34.0648800160001,
+        Name: "PACIFIC ALLIANCE MEDICAL CENTER",
+        Location: "WEST COLLEGE STREET",
+        Type: "Bệnh viện tư nhân",
+        Established: "1869",
+        Specialties: "Nội tổng quát, Ngoại khoa, Cấp cứu",
+        Affiliation: "Pacific Alliance Medical Group",
+        Phone: "(213) 624-8411",
+        Description: "Một trong những bệnh viện lâu đời nhất tại Los Angeles, từng được biết đến với tên gọi French Hospital.",
+        symbol: {
+          type: "picture-marker",
+          url: "hospital-buildings.png",
+          width: "30px",
+          height: "30px"
         },
-        {
-          type: "point",
-          longitude: -118.41186805,
-          latitude: 34.059102925,
-          Name: "CALIFORNIA REHABILITATION INSTITUTE, LLC",
-          Location: "2070 CENTURY PARK EAST",
-          Type: "Trung tâm phục hồi chức năng",
-          Established: "2016",
-          Specialties: "Phục hồi chấn thương, Thần kinh, Cột sống",
-          Affiliation: "UCLA Health, Cedars-Sinai, Select Medical",
-          Phone: "(424) 522-7100",
-          Description: "Cơ sở phục hồi chức năng hiện đại bậc nhất, hợp tác giữa UCLA và Cedars-Sinai.",
-          symbol: {
-            type: "picture-marker",
-            url: "hospital-buildings.png",
-            width: "30px",
-            height: "30px"
-          },
-          popupTemplate: point_template_hospital
+        popupTemplate: point_template_hospital
+      },
+      {
+        type: "point",
+        longitude: -118.41186805,
+        latitude: 34.059102925,
+        Name: "CALIFORNIA REHABILITATION INSTITUTE, LLC",
+        Location: "2070 CENTURY PARK EAST",
+        Type: "Trung tâm phục hồi chức năng",
+        Established: "2016",
+        Specialties: "Phục hồi chấn thương, Thần kinh, Cột sống",
+        Affiliation: "UCLA Health, Cedars-Sinai, Select Medical",
+        Phone: "(424) 522-7100",
+        Description: "Cơ sở phục hồi chức năng hiện đại bậc nhất, hợp tác giữa UCLA và Cedars-Sinai.",
+        symbol: {
+          type: "picture-marker",
+          url: "hospital-buildings.png",
+          width: "30px",
+          height: "30px"
         },
-        {
-          type: "point",
-          longitude: -118.447490834,
-          longitude: -118.447490834,
-          latitude: 34.176900695,
-          Name: "SOUTHERN CALIFORNIA HOSPITAL AT VAN NUYS D/P APH",
-          Location: "14433 EMELITA STREET, trong khu dân cư Sherman Oaks",
-          Type: "Bệnh viện tư nhân",
-          Established: "1957",
-          Specialties: "Sức khỏe tâm thần, Điều trị nghiện, Nội tổng quát",
-          Affiliation: "Southern California Hospital Network",
-          Phone: "(818) 787-1511",
-          Description: "Chuyên cung cấp dịch vụ điều trị sức khỏe tâm thần và phục hồi cho bệnh nhân tại khu vực San Fernando Valley.",
-          symbol: {
-            type: "picture-marker",
-            url: "hospital-buildings.png",
-            width: "30px",
-            height: "30px"
-          },
-          popupTemplate: point_template_hospital
-        }
+        popupTemplate: point_template_hospital
+      },
+      {
+        type: "point",
+        longitude: -118.447490834,
+        longitude: -118.447490834,
+        latitude: 34.176900695,
+        Name: "SOUTHERN CALIFORNIA HOSPITAL AT VAN NUYS D/P APH",
+        Location: "14433 EMELITA STREET, trong khu dân cư Sherman Oaks",
+        Type: "Bệnh viện tư nhân",
+        Established: "1957",
+        Specialties: "Sức khỏe tâm thần, Điều trị nghiện, Nội tổng quát",
+        Affiliation: "Southern California Hospital Network",
+        Phone: "(818) 787-1511",
+        Description: "Chuyên cung cấp dịch vụ điều trị sức khỏe tâm thần và phục hồi cho bệnh nhân tại khu vực San Fernando Valley.",
+        symbol: {
+          type: "picture-marker",
+          url: "hospital-buildings.png",
+          width: "30px",
+          height: "30px"
+        },
+        popupTemplate: point_template_hospital
+      }
       ],
       //Vẽ đường biên giới quanh thành phố Los Angeles
       "lines": [
@@ -315,6 +319,8 @@
           },
           Name: "Thành phố Los Angeles",
           Location: "California, Hoa Kỳ",
+          BorderCounty: "Quận Kern (phía bắc), Quận San Bernardino (phía đông), Quận Cam (phía đông nam), và Quận Ventura (phía tây), cùng với Thái Bình Dương ở phía nam",
+          SpecialFeature: "Los Angeles là trung tâm văn hóa, kinh tế và giải trí lớn của Hoa Kỳ, nổi tiếng với ngành công nghiệp điện ảnh Hollywood.",
           popupTemplate: point_template_area
         }
       ],
@@ -337,6 +343,9 @@
           ],
           Name: "Khu dân cư East Hollywood",
           Location: "Thành phố Los Angeles, bang California, Hoa Kỳ",
+          Area: "4.8",
+          Population: "60,000",
+          Description: "Khu dân cư East Hollywood là một khu vực nổi bật ở Los Angeles, nổi bật với cộng đồng đa dạng và các khu vực văn hóa phong phú.",
           symbol: {
             type: "simple-fill",
             color: [227, 139, 79, 0.4],
@@ -400,6 +409,9 @@
           ],
           Name: "Khu dân cư Tarzana",
           Location: "Thành phố Los Angeles, bang California, Hoa Kỳ",
+          Area: "12.4",
+          Population: "35,000",
+          Description: "Khu dân cư Tarzana nằm ở phía tây Los Angeles, nổi bật với cộng đồng yên tĩnh và nhiều không gian xanh. Đây là khu vực sống lý tưởng cho các gia đình, với nhiều công viên, trường học và cơ sở hạ tầng phát triển.",
           symbol: {
             type: "simple-fill",
             color: [0, 153, 0, 0.4],
@@ -520,6 +532,9 @@
           ],
           Name: "Khu dân cư Sherman Oaks",
           Location: "Thành phố Los Angeles, bang California, Hoa Kỳ",
+          Area: "3.7",
+          Population: "55,000",
+          Description: "Khu dân cư Sherman Oaks nằm ở phía bắc của Thung lũng San Fernando, nổi bật với những con phố cây xanh, khu dân cư yên tĩnh và cộng đồng thân thiện. Đây là một khu vực phổ biến cho các gia đình, với nhiều công viên, cửa hàng, nhà hàng và các tiện ích khác.",
           symbol: {
             type: "simple-fill",
             color: [165, 42, 42, 0.4],
@@ -566,6 +581,9 @@
           ],
           Name: "Khu dân cư Panorama City",
           Location: "Thành phố Los Angeles, bang California, Hoa Kỳ",
+          Area: "4.1",
+          Population: "65,000",
+          Description: "Khu dân cư Panorama City nằm ở phía bắc của Los Angeles, nổi bật với cộng đồng đa dạng và nhiều khu vực cư trú. Khu vực này có nhiều tiện ích, bao gồm trung tâm mua sắm, công viên và các trường học, tạo nên một môi trường sống lý tưởng cho các gia đình và người lao động.",
           symbol: {
             type: "simple-fill",
             color: [95, 158, 160, 0.4],
@@ -632,6 +650,9 @@
           ],
           Name: "Khu dân cư Sylmar",
           Location: "Thành phố Los Angeles, bang California, Hoa Kỳ",
+          Area: "19.5",
+          Population: "90,000",
+          Description: "Khu dân cư Sylmar nằm ở phía bắc của Thung lũng San Fernando, nổi bật với các không gian sống rộng rãi, môi trường trong lành và cộng đồng thân thiện. Đây là một khu vực lý tưởng cho các gia đình và người yêu thích không gian xanh, với nhiều công viên, các tiện ích như trường học, trung tâm mua sắm và bệnh viện.",
           symbol: {
             type: "simple-fill",
             color: [138, 43, 226, 0.3],
@@ -661,6 +682,9 @@
           ],
           Name: "Khu dân cư Rampart Village",
           Location: "Thành phố Los Angeles, bang California, Hoa Kỳ",
+          Area: "1.6",
+          Population: "40,000",
+          Description: "Khu dân cư Rampart Village nằm ở trung tâm Los Angeles, nổi bật với cộng đồng đa dạng văn hóa và các khu dân cư sầm uất. Khu vực này đang trải qua quá trình phát triển mạnh mẽ, với nhiều cửa hàng, nhà hàng và các dịch vụ tiện ích. Đây là nơi lý tưởng cho những ai yêu thích sự sôi động và dễ dàng tiếp cận các trung tâm thương mại, văn hóa.",
           symbol: {
             type: "simple-fill",
             color: [255, 0, 0, 0.4],
@@ -715,6 +739,9 @@
           ],
           Name: "Khu dân cư Westside",
           Location: "Thành phố Los Angeles, bang California, Hoa Kỳ",
+          Area: "8.2",
+          Population: "250,000",
+          Description: "Khu dân cư Westside nằm ở bờ tây của Los Angeles, nổi bật với các khu vực dân cư sang trọng, bãi biển đẹp và các tiện ích cao cấp. Đây là một trong những khu vực đắt đỏ và phát triển nhất của Los Angeles, với nhiều khu mua sắm, nhà hàng nổi tiếng và các cơ sở giáo dục hàng đầu. Westside còn là nơi sinh sống của nhiều người nổi tiếng và các gia đình giàu có.",
           symbol: {
             type: "simple-fill",
             color: [255, 165, 0, 0.4],
@@ -755,6 +782,9 @@
           ],
           Name: "Khu dân cư P.I.C.O.",
           Location: "Thành phố Los Angeles, bang California, Hoa Kỳ",
+          Area: "2.8",
+          Population: "45,000",
+          Description: "Khu dân cư P.I.C.O. nằm ở phía tây Los Angeles, nổi bật với cộng đồng đa dạng văn hóa và là một khu vực phát triển nhanh chóng. Với nhiều cửa hàng, quán cà phê và các cơ sở thương mại, đây là nơi cư trú lý tưởng cho các gia đình và người trẻ. Khu vực này còn có các trung tâm giáo dục và cơ sở hạ tầng đầy đủ, mang đến một môi trường sống tiện nghi.",
           symbol: {
             type: "simple-fill",
             color: [255, 105, 180, 0.4],
@@ -787,6 +817,9 @@
           ],
           Name: "Khu dân cư Mid City West",
           Location: "Thành phố Los Angeles, bang California, Hoa Kỳ",
+          Area: "2.2",
+          Population: "60,000",
+          Description: "Khu dân cư Mid City West nằm ngay trung tâm của Los Angeles, là một khu vực sầm uất với sự kết hợp giữa các khu dân cư, thương mại và các dịch vụ tiện ích. Khu vực này có nhiều lựa chọn về mua sắm, ăn uống và các địa điểm giải trí, đồng thời gần các trường học và công viên. Đây là một lựa chọn lý tưởng cho những ai muốn sống gần trung tâm thành phố nhưng vẫn tận hưởng không gian sống thoải mái.",
           symbol: {
             type: "simple-fill",
             color: [30, 144, 255, 0.4],
@@ -838,6 +871,9 @@
           ],
           Name: "Khu dân cư Historic Cultural North",
           Location: "Thành phố Los Angeles, bang California, Hoa Kỳ",
+          Area: "1.5",
+          Population: "30,000",
+          Description: "Khu dân cư Historic Cultural North nằm gần trung tâm Los Angeles, nổi bật với các khu di tích lịch sử, văn hóa phong phú và các công trình kiến trúc cổ kính. Đây là khu vực thu hút những người yêu thích văn hóa và nghệ thuật, với nhiều bảo tàng, phòng triển lãm và các địa điểm lịch sử. Khu dân cư này cũng có sự kết hợp giữa các cửa hàng, nhà hàng và không gian công cộng, mang đến một không gian sống sống động và đặc sắc.",
           symbol: {
             type: "simple-fill",
             color: [60, 179, 113, 0.4],
@@ -885,21 +921,15 @@
         });
       };
 
-      var graphicsLayer = new GraphicsLayer();
+      var polygonLayer = new GraphicsLayer();
+      var lineLayer = new GraphicsLayer();
+      var pointLayer = new GraphicsLayer();
 
-      jsondata.points.forEach(function (data) {
-        graphicsLayer.add(createGraphic(data));
-      });
+      jsondata.polygons.forEach(d => polygonLayer.add(createGraphic(d)));
+      jsondata.lines.forEach(d => lineLayer.add(createGraphic(d)));
+      jsondata.points.forEach(d => pointLayer.add(createGraphic(d)));
 
-      jsondata.lines.forEach(function (data) {
-        graphicsLayer.add(createGraphic(data));
-      });
-
-      jsondata.polygons.forEach(function (data) {
-        graphicsLayer.add(createGraphic(data));
-      });
-
-      map.add(graphicsLayer);
+      map.addMany([polygonLayer, lineLayer, pointLayer]);
 
     });
   </script>
