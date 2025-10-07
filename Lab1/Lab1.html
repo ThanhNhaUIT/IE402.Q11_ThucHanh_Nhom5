@@ -22,7 +22,15 @@
   <script>
     var point_template_hospital = {
       title: "{Name}",
-      content: "Bệnh viện này ở <b>{Location}</b>."
+      content: `
+        <b>Địa điểm:</b> {Location}<br>
+        <b>Loại hình:</b> {Type}<br>
+        <b>Năm thành lập:</b> {Established}<br>
+        <b>Chuyên khoa:</b> {Specialties}<br>
+        <b>Liên kết:</b> {Affiliation}<br>
+        <b>Điện thoại:</b> {Phone}<br>
+        <b>Mô tả:</b> {Description}<br>
+      `
     };
     var point_template_area = {
       title: "{Name}",
@@ -35,13 +43,19 @@
 
     var jsondata = {
       // Các point trên bản đồ biểu thị bệnh viện ở Los Angeles
-      "points": [
-        {
+      "points": [{
           type: "point",
+          longitude: -118.29388184457588,
           longitude: -118.29388184457588,
           latitude: 34.09839188399175,
           Name: "KAISER PERMANENTE LOS ANGELES MEDICAL CENTER",
           Location: "4867 SUNSET BLVD, trong khu dân cư East Hollywood",
+          Type: "Bệnh viện tư nhân",
+          Established: "1953",
+          Specialties: "Tim mạch, Nội tổng quát, Nhi khoa, Ung bướu",
+          Affiliation: "Kaiser Permanente Health System",
+          Phone: "(323) 783-4011",
+          Description: "Một trong những trung tâm y tế lớn nhất của Kaiser ở khu vực Los Angeles, phục vụ cộng đồng từ năm 1953 với hơn 1.200 giường bệnh.",
           symbol: {
             type: "picture-marker",
             url: "hospital-buildings.png",
@@ -53,9 +67,16 @@
         {
           type: "point",
           longitude: -118.286392079,
+          longitude: -118.286392079,
           latitude: 34.067204777,
           Name: "SHRINERS HOSPITAL FOR CHILDREN - L.A.",
-          Location: "3160 GENEVA STREET, trong khu dân cư Rampart Village",
+          Location: "3160 GENEVA STREET",
+          Type: "Bệnh viện phi lợi nhuận",
+          Established: "1952",
+          Specialties: "Nhi khoa, Chỉnh hình, Phẫu thuật bỏng, Phục hồi chức năng",
+          Affiliation: "Shriners Hospitals for Children",
+          Phone: "(213) 388-3151",
+          Description: "Cung cấp dịch vụ chăm sóc y tế miễn phí cho trẻ em, đặc biệt trong lĩnh vực chỉnh hình và phẫu thuật bỏng.",
           symbol: {
             type: "picture-marker",
             url: "hospital-buildings.png",
@@ -67,9 +88,16 @@
         {
           type: "point",
           longitude: -118.430219294,
+          longitude: -118.430219294,
           latitude: 34.2185641940001,
           Name: "KAISER PERMANENTE PANORAMA CITY",
           Location: "13652 CANTARA STREET, trong khu dân cư Panorama City",
+          Type: "Bệnh viện tư nhân",
+          Established: "1962",
+          Specialties: "Sản khoa, Nội khoa, Ngoại tổng quát, Cấp cứu",
+          Affiliation: "Kaiser Permanente Health System",
+          Phone: "(818) 375-2000",
+          Description: "Trung tâm y tế phục vụ khu vực San Fernando Valley, cung cấp dịch vụ y tế toàn diện cho hàng chục nghìn cư dân.",
           symbol: {
             type: "picture-marker",
             url: "hospital-buildings.png",
@@ -81,9 +109,16 @@
         {
           type: "point",
           longitude: -118.531904059,
+          longitude: -118.531904059,
           latitude: 34.170393216,
           Name: "PROVIDENCE TARZANA MEDICAL CENTER",
           Location: "18321 CLARK STREET, trong khu dân cư Tarzana",
+          Type: "Bệnh viện tư nhân (phi lợi nhuận)",
+          Established: "1973",
+          Specialties: "Sản khoa, Nhi khoa, Cấp cứu, Phẫu thuật tim",
+          Affiliation: "Providence Health & Services",
+          Phone: "(818) 881-0800",
+          Description: "Bệnh viện hiện đại với đội ngũ y bác sĩ giàu kinh nghiệm, cung cấp dịch vụ chăm sóc sức khỏe toàn diện cho cộng đồng Tarzana.",
           symbol: {
             type: "picture-marker",
             url: "hospital-buildings.png",
@@ -95,9 +130,16 @@
         {
           type: "point",
           longitude: -118.445764102,
+          longitude: -118.445764102,
           latitude: 34.325871722,
           Name: "LOS ANGELES COUNTY OLIVE VIEW-UCLA MEDICAL CENTER",
           Location: "14445 OLIVE VIEW DRIVE, trong khu dân cư Sylmar",
+          Type: "Bệnh viện công lập",
+          Established: "1920",
+          Specialties: "Nội tổng quát, Cấp cứu, Nghiên cứu y học",
+          Affiliation: "UCLA School of Medicine",
+          Phone: "(747) 210-3000",
+          Description: "Cơ sở đào tạo và nghiên cứu y học trực thuộc UCLA, phục vụ bệnh nhân thu nhập thấp tại Los Angeles County.",
           symbol: {
             type: "picture-marker",
             url: "hospital-buildings.png",
@@ -111,7 +153,13 @@
           longitude: -118.362458577,
           latitude: 34.0573663500001,
           Name: "DOCS SURGICAL HOSPITAL",
-          Location: "6000 SAN VICENTE BOULEVARD, trong khu dân cư P.I.C.O.",
+          Location: "6000 SAN VICENTE BOULEVARD",
+          Type: "Bệnh viện tư nhân",
+          Established: "2004",
+          Specialties: "Phẫu thuật thẩm mỹ, Ngoại tổng quát, Nội soi",
+          Affiliation: "DOCS Medical Group",
+          Phone: "(323) 932-5000",
+          Description: "Chuyên cung cấp dịch vụ phẫu thuật chất lượng cao trong môi trường thân thiện và hiện đại.",
           symbol: {
             type: "picture-marker",
             url: "hospital-buildings.png",
@@ -125,7 +173,13 @@
           longitude: -118.360527347,
           latitude: 34.0572922740001,
           Name: "OLYMPIA MEDICAL CENTER",
-          Location: "5900 WEST OLYMPIA BLVD, trong khu dân cư Mid City West",
+          Location: "5900 WEST OLYMPIA BLVD",
+          Type: "Bệnh viện tư nhân",
+          Established: "1948",
+          Specialties: "Nội tổng quát, Cấp cứu, Phẫu thuật chỉnh hình",
+          Affiliation: "Alecto Healthcare Services",
+          Phone: "(323) 938-3161",
+          Description: "Từng là cơ sở chăm sóc sức khỏe nổi tiếng ở khu vực Mid-Wilshire, Los Angeles.",
           symbol: {
             type: "picture-marker",
             url: "hospital-buildings.png",
@@ -139,7 +193,13 @@
           longitude: -118.239227761,
           latitude: 34.0648800160001,
           Name: "PACIFIC ALLIANCE MEDICAL CENTER",
-          Location: "WEST COLLEGE STREET, trong khu dân cư Historic Cultural North",
+          Location: "WEST COLLEGE STREET",
+          Type: "Bệnh viện tư nhân",
+          Established: "1869",
+          Specialties: "Nội tổng quát, Ngoại khoa, Cấp cứu",
+          Affiliation: "Pacific Alliance Medical Group",
+          Phone: "(213) 624-8411",
+          Description: "Một trong những bệnh viện lâu đời nhất tại Los Angeles, từng được biết đến với tên gọi French Hospital.",
           symbol: {
             type: "picture-marker",
             url: "hospital-buildings.png",
@@ -153,7 +213,13 @@
           longitude: -118.41186805,
           latitude: 34.059102925,
           Name: "CALIFORNIA REHABILITATION INSTITUTE, LLC",
-          Location: "2070 CENTURY PARK EAST, trong khu dân cư Westside",
+          Location: "2070 CENTURY PARK EAST",
+          Type: "Trung tâm phục hồi chức năng",
+          Established: "2016",
+          Specialties: "Phục hồi chấn thương, Thần kinh, Cột sống",
+          Affiliation: "UCLA Health, Cedars-Sinai, Select Medical",
+          Phone: "(424) 522-7100",
+          Description: "Cơ sở phục hồi chức năng hiện đại bậc nhất, hợp tác giữa UCLA và Cedars-Sinai.",
           symbol: {
             type: "picture-marker",
             url: "hospital-buildings.png",
@@ -165,9 +231,16 @@
         {
           type: "point",
           longitude: -118.447490834,
+          longitude: -118.447490834,
           latitude: 34.176900695,
           Name: "SOUTHERN CALIFORNIA HOSPITAL AT VAN NUYS D/P APH",
           Location: "14433 EMELITA STREET, trong khu dân cư Sherman Oaks",
+          Type: "Bệnh viện tư nhân",
+          Established: "1957",
+          Specialties: "Sức khỏe tâm thần, Điều trị nghiện, Nội tổng quát",
+          Affiliation: "Southern California Hospital Network",
+          Phone: "(818) 787-1511",
+          Description: "Chuyên cung cấp dịch vụ điều trị sức khỏe tâm thần và phục hồi cho bệnh nhân tại khu vực San Fernando Valley.",
           symbol: {
             type: "picture-marker",
             url: "hospital-buildings.png",
