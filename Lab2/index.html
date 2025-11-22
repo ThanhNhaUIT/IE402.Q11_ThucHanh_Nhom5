@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Khuôn viên UIT - Các tòa nhà</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.29/"></script>
+    <style>
+        html, body, #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+        #infoDiv {
+            background: white;
+            padding: 10px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            max-width: 300px;
+        }
+        #legendDiv {
+            background: white;
+            padding: 10px;
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            max-width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="viewDiv"></div>
+    <div id="infoDiv">
+        <h3>Khuôn viên UIT</h3>
+        <p>Trường Đại học Công nghệ Thông tin</p>
+        <p>Khu phố 6, P. Linh Trung, TP. Thủ Đức, TP.HCM</p>
+    </div>
+    <div id="legendDiv">
+        <h4>Chú thích</h4>
+        <div style="display: flex; align-items: center; margin: 5px 0;">
+            <div style="width: 20px; height: 20px; background: #1E90FF; margin-right: 10px;"></div>
+            <span>Tòa A</span>
+        </div>
+        <div style="display: flex; align-items: center; margin: 5px 0;">
+            <div style="width: 20px; height: 20px; background:  #87CEEB; margin-right: 10px;"></div>
+            <span>Tòa B</span>
+        </div>
+        <div style="display: flex; align-items: center; margin: 5px 0;">
+            <div style="width: 20px; height: 20px; background: #FF6347; margin-right: 10px;"></div>
+            <span>Tòa C</span>
+        </div>
+        <div style="display: flex; align-items: center; margin: 5px 0;">
+            <div style="width: 20px; height: 20px; background: #FFD700; margin-right: 10px;"></div>
+            <span>Tòa D</span>
+        </div>
+        <div style="display: flex; align-items: center; margin: 5px 0;">
+            <div style="width: 20px; height: 20px; background: #9370DB; margin-right: 10px;"></div>
+            <span>Tòa E</span>
+        </div>
+    </div>
+
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/SceneView",
+            "esri/layers/GeoJSONLayer"
+        ], function(Map, SceneView, GeoJSONLayer) {
+
+            // Tạo GeoJSONLayer cho tất cả các tòa nhà
+            const buildingsLayer = new GeoJSONLayer({
+                url: "./toa_B_data.geojson",
+                //url: "./toa_A_data.geojson",
+                //url: "./toa_E_data.geojson",
+                //url: "./toa_C_data.geojson",
+                //url: "./canteen_data.geojson",
+                //url: "./data.geojson",
+                elevationInfo: {
+                    mode: "relative-to-ground",
+                    offset: 0
+                },
+                renderer: {
+                    type: "unique-value",
+                    field: "building", // Thêm trường building để phân biệt các tòa nhà
+                    uniqueValueInfos: [
+                        {
+                            value: "A",
+                            symbol: {
+                                type: "polygon-3d",
+                                symbolLayers: [{
+                                    type: "extrude",
+                                    material: { color: "#1E90FF" }, // Xanh nước biển cho tòa A
+                                    edges: { type: "solid", color: [0, 0, 0, 255], size: 1 }
+                                }]
+                            }
+                        },
+                        {
+                            value: "B", 
+                            symbol: {
+                                type: "polygon-3d",
+                                symbolLayers: [{
+                                    type: "extrude",
+                                    material: { color:  "#87CEEB" }, // Xanh lá cây cho tòa B
+                                    edges: { type: "solid", color: [0, 0, 0, 255], size: 1 }
+                                }]
+                            }
+                        },
+                        {
+                            value: "C",
+                            symbol: {
+                                type: "polygon-3d",
+                                symbolLayers: [{
+                                    type: "extrude",
+                                    material: { color: "#FF6347" }, // Đỏ cam cho tòa C
+                                    edges: { type: "solid", color: [0, 0, 0, 255], size: 1 }
+                                }]
+                            }
+                        },
+                        {
+                            value: "D",
+                            symbol: {
+                                type: "polygon-3d",
+                                symbolLayers: [{
+                                    type: "extrude",
+                                    material: { color: "#FFD700" }, // Vàng cho tòa D
+                                    edges: { type: "solid", color: [0, 0, 0, 255], size: 1 }
+                                }]
+                            }
+                        },
+                        {
+                            value: "E",
+                            symbol: {
+                                type: "polygon-3d",
+                                symbolLayers: [{
+                                    type: "extrude",
+                                    material: { color: "#9370DB" }, // Tím cho tòa E
+                                    edges: { type: "solid", color: [0, 0, 0, 255], size: 1 }
+                                }]
+                            }
+                        }
+                    ],
+                    defaultSymbol: {
+                        type: "polygon-3d",
+                        symbolLayers: [{
+                            type: "extrude",
+                            material: { color: "#8B7355" },
+                            edges: { type: "solid", color: [50, 50, 50, 0.8], size: 1 }
+                        }]
+                    },
+                    visualVariables: [{
+                        type: "size",
+                        field: "height",
+                        valueUnit: "meters"
+                    }]
+                },
+                popupTemplate: {
+                    title: "{name}",
+                    content: [{
+                        type: "fields",
+                        fieldInfos: [
+                            {
+                                fieldName: "name",
+                                label: "Tên công trình"
+                            },
+                            {
+                                fieldName: "building",
+                                label: "Tòa nhà"
+                            },
+                            {
+                                fieldName: "floor",
+                                label: "Tầng"
+                            },
+                            {
+                                fieldName: "height", 
+                                label: "Chiều cao (m)"
+                            }
+                        ]
+                    }]
+                }
+            });
+
+            // Tạo bản đồ
+            const map = new Map({
+                basemap: "topo-vector",
+                ground: "world-elevation",
+                layers: [buildingsLayer]
+            });
+
+            // Tạo SceneView
+            const view = new SceneView({
+                container: "viewDiv",
+                map: map,
+                camera: {
+                    position: {
+                        x: 106.804,
+                        y: 10.869,
+                        z: 300
+                    },
+                    tilt: 65,
+                    heading: 0
+                },
+                qualityProfile: "high"
+            });
+
+            view.when(() => {
+                console.log("SceneView loaded successfully");
+            });
+        });
+    </script>
+</body>
+</html>
