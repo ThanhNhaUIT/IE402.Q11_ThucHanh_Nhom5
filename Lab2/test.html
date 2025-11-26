@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>UIT - Tòa A 3D</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.29/"></script>
+    <style>
+        html, body, #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+        #infoDiv {
+            background: white;
+            padding: 10px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            max-width: 300px;
+        }
+        #controls {
+            background: white;
+            padding: 10px;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            max-width: 200px;
+        }
+        button {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            background: #1E90FF;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0066CC;
+        }
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="viewDiv"></div>
+    <div id="infoDiv">
+        <h3>UIT - Tòa A</h3>
+        <p>Trường Đại học Công nghệ Thông tin</p>
+        <p>Khu phố 6, P. Linh Trung, TP. Thủ Đức, TP.HCM</p>
+    </div>
+    <div id="controls">
+        <h4>Điều khiển</h4>
+        <button id="resetView">Đặt lại góc nhìn</button>
+        <button id="toggleModel">Ẩn/Hiện mô hình</button>
+    </div>
+    <div id="loading">Đang tải mô hình 3D...</div>
+
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/SceneView",
+            "esri/layers/GraphicsLayer",
+            "esri/Graphic",
+            "esri/geometry/Point",
+            "esri/symbols/ObjectSymbol3DLayer",
+            "esri/symbols/PointSymbol3D"
+        ], function(Map, SceneView, GraphicsLayer, Graphic, Point, ObjectSymbol3DLayer, PointSymbol3D) {
+
+            // Tạo lớp đồ họa cho mô hình 3D
+            const modelLayer = new GraphicsLayer();
+
+            // Tạo bản đồ
+            const map = new Map({
+                basemap: "topo-vector",
+                ground: "world-elevation",
+                layers: [modelLayer]
+            });
+
+            // Tạo SceneView
+            const view = new SceneView({
+                container: "viewDiv",
+                map: map,
+                camera: {
+                    position: {
+                        x: 106.804,
+                        y: 10.869,
+                        z: 150
+                    },
+                    tilt: 75,
+                    heading: 0
+                },
+                qualityProfile: "high"
+            });
+
+            // Khi SceneView đã tải xong
+            view.when(() => {
+                console.log("SceneView loaded successfully");
+                
+                // Thêm mô hình 3D tòa A
+                addToaAModel();
+            });
+
+            // Hàm thêm mô hình 3D tòa A
+            function addToaAModel() {
+                // Tạo symbol cho mô hình 3D
+                const symbol = new PointSymbol3D({
+                    symbolLayers: [new ObjectSymbol3DLayer({
+                        resource: {
+                            href: "./models/toa_A.glb" // Đường dẫn đến file mô hình
+                        },
+                        material: {
+                            color: "#1E90FF"
+                        },
+                        anchor: "bottom", // Neo ở đáy
+                        height: 20, // Chiều cao mô hình (mét)
+                        width: 40,  // Chiều rộng mô hình (mét)
+                        depth: 50,  // Chiều sâu mô hình (mét)
+                        heading: 0   // Hướng mô hình (độ)
+                    })]
+                });
+
+                // Tạo điểm tại vị trí tòa A
+                const point = new Point({
+                    x: 106.8029288884714, // Kinh độ
+                    y: 10.870429951939045,  // Vĩ độ
+                    z: 30        // Độ cao
+                });
+
+                // Tạo graphic với mô hình 3D
+                const graphic = new Graphic({
+                    geometry: point,
+                    symbol: symbol,
+                    attributes: {
+                        name: "Tòa A - UIT",
+                        description: "Tòa A - Trường Đại học Công nghệ Thông tin"
+                    },
+                    popupTemplate: {
+                        title: "{name}",
+                        content: "{description}"
+                    }
+                });
+
+                // Thêm graphic vào layer
+                modelLayer.add(graphic);
+                
+                // Ẩn thông báo đang tải
+                document.getElementById("loading").style.display = "none";
+                
+                console.log("Mô hình 3D Tòa A đã được thêm vào bản đồ");
+            }
+
+            // Xử lý sự kiện cho nút đặt lại góc nhìn
+            document.getElementById("resetView").addEventListener("click", function() {
+                view.goTo({
+                    position: {
+                        x: 106.804,
+                        y: 10.869,
+                        z: 150
+                    },
+                    tilt: 75,
+                    heading: 0
+                });
+            });
+
+            // Xử lý sự kiện cho nút ẩn/hiện mô hình
+            document.getElementById("toggleModel").addEventListener("click", function() {
+                modelLayer.visible = !modelLayer.visible;
+                this.textContent = modelLayer.visible ? "Ẩn mô hình" : "Hiện mô hình";
+            });
+        });
+    </script>
+</body>
+</html>
