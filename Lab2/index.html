@@ -75,11 +75,11 @@
 
             // Tạo GeoJSONLayer cho tất cả các tòa nhà
             const buildingsLayer = new GeoJSONLayer({
-                //url: "./toa_B_data.geojson",
+                url: "./toa_B_data.geojson",
                 //url: "./toa_A_data.geojson",
                 //url: "./toa_E_data.geojson",
                 //url: "./toa_C_data.geojson",
-                url: "./canteen_data.geojson",
+                //url: "./canteen_data.geojson",
                 //url: "./data.geojson",
                 elevationInfo: {
                     mode: "relative-to-ground",
@@ -108,6 +108,50 @@
                                     type: "extrude",
                                     material: { color:  "#87CEEB" }, // Xanh lá cây cho tòa B
                                     edges: { type: "solid", color: [0, 0, 0, 255], size: 1 }
+                                }]
+                            }
+                        },
+                        {
+                            value: "B_langcang", // Lang cang tòa B - màu xanh dương
+                            symbol: {
+                                type: "polygon-3d",
+                                symbolLayers: [{
+                                    type: "extrude",
+                                    material: { color: "#387bb0" },
+                                    edges: { type: "solid", color: [0, 0, 0, 255], size: 1 }
+                                }]
+                            }
+                        },
+                        {
+                            value: "B_bacthang",
+                            symbol: {
+                                type: "polygon-3d",
+                                symbolLayers: [{
+                                    type: "extrude",
+                                    material: { color: "#b5b5b5" },
+                                    edges: { type: "solid", color: [0, 0, 0, 255], size: 1 }
+                                }]
+                            }
+                        },
+                        {
+                            value: "B_bacthem", // Bậc thềm tòa B - màu xám
+                            symbol: {
+                                type: "polygon-3d",
+                                symbolLayers: [{
+                                    type: "extrude",
+                                    material: { color: "#808080" },
+                                    edges: { type: "solid", color: [0, 0, 0, 255], size: 1 }
+                                }]
+                            }
+                        },
+                        {
+                            value: "B_cuaso", // Lang cang tòa B - màu xanh dương
+                            symbol: {
+                                type: "polygon-3d",
+                                symbolLayers: [{
+                                    type: "extrude",
+                                    material: { color: "#f3f3db" },
+                                   
                                 }]
                             }
                         },
